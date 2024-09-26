@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      // What: Hum manually event handling ka example dekhenge.
+      // Why: JavaScript mein event listeners ko manually attach karna padta hai, lekin React is process ko simplify karta hai.
+      // How: Ek simple button click event handle karenge.
+
+      // 🌟 **Generic Reference (JS Context)** 🌟: JavaScript mein events ko manually handle karte hain aur event listeners ko manually attach karte hain.
+
+      const button = document.createElement("button");
+      button.innerText = "Click Me";
+      // function anonymous (no name)
+      /*
+        button.addEventListener('click', function() {
+
+        })
+     */
+      button.addEventListener("click", () => {
+        console.log("button was clicked");
+      });
+
+      document.querySelector("#app").appendChild(button);
+    </script>
+  </body>
+</html>

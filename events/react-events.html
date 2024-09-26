@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script type="text/babel">
+      // What: React mein event handling ka example dekhenge.
+      // Why: React mein events ko handle karna simpler hota hai, aur hum events ko directly components ke saath bind kar sakte hain.
+      // How: React mein onClick event ka use karke button click handle karenge.
+
+      // 🌟 **Generic Reference (React Context)** 🌟: React mein events ko handle karna easier hota hai. Hum events ko directly components ke andar handle karte hain.
+
+      // babel transpiler converts jsx to html/js/css etc
+      function App() {
+        const myText = "Hello World";
+
+        const myFunc = function () {
+          alert(2);
+        };
+
+        return (
+          //you cannot return multiple elements back from jsx, only 1 main parent element can be returned.
+          // react fragment <></a>
+          <>
+            <button onClick={() => alert(1)}>{myText + " " + (2 + 2)}</button>
+            <button onClick={myFunc}>{myText + " " + (2 + 3)}</button>
+
+            {/*<button onClick={myFunc()}>{myText + " " + (2 + 3)}</button>*/}
+            {/* cannot do this a function call should always be wrapped in array/anonymous func*/}
+          </>
+        ); // jsx expression are similar to js expression
+        // example js expressoin (1 + 1) on evaluation => 2
+      }
+
+      ReactDOM.render(<App />, document.querySelector("#app"));
+
+      // **Note**: Hum yeh nahi kar sakte <button onClick={alert('Button clicked!')}>
+      // kyunki agar hum function ko bina arrow function ke likhenge toh wo immediately execute ho jayega jab component render hoga.
+      // Isliye hum arrow function ka use karte hain taaki function sirf tab chale jab button click hota hai.
+    </script>
+  </body>
+</html>
