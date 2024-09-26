@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body style="background-color: #333; color: aliceblue">
+    <div id="app"></div>
+
+    <script type="text/babel">
+      // What: Hum map ka use karenge array ko loop karne ke liye aur JSX return karenge.
+      // Why: React mein hum map function ka use karte hain kyunki yeh ek new array return karta hai.
+      // How: JSX ke andar map function ka use karke dynamic components render karenge.
+
+      // babel transpiler converts jsx to html/js/css etc
+      function App() {
+        const items = ["Item 1", "Item 2", "Item 3"];
+        return (
+          <div>
+            {items.map((item, index) => {
+              return <div key={index}>{item}</div>;
+            })}
+          </div>
+        );
+
+        /*
+           return (
+          <div>
+            {items.map((item, index) => <div key={index}>{item}</div>)}
+          </div>
+        );
+
+        */
+
+        /*
+            returns value () =>  <div></div> is auto retur but whe () => {return <div></div>}
+        */
+      }
+
+      ReactDOM.render(<App />, document.querySelector("#app"));
+    </script>
+  </body>
+</html>

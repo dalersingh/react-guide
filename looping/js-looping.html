@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Looping through Array</title>
+  </head>
+  <body>
+    <div id="app" style="background-color: #333; color: aliceblue"></div>
+
+    <!-- 
+        <div id="app">
+            // first iteration
+                <div>
+                    Item 1
+                </div>
+                // second iteration
+                <div>
+                    Item 2
+                </div>
+                //  iteration
+                <div>
+                    Item 3
+                </div>
+        </div>    
+    -->
+
+    <script>
+      // What: Hum array ko loop karenge aur items ko DOM mein render karenge.
+      // Why: Arrays ko loop karna common hai jab hum dynamic UI create karte hain.
+      // How: Hum forEach ka use karenge.
+
+      const items = ["Item 1", "Item 2", "Item 3"];
+      const app = document.getElementById("app");
+
+      items.forEach((item) => {
+        const div = document.createElement("div");
+        div.textContent = item;
+        app.appendChild(div);
+      });
+    </script>
+  </body>
+</html>
