@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body style="background-color: #333; color: aliceblue">
+    <div id="app"></div>
+
+    <script type="text/babel">
+      function App() {
+        // component local data
+        const isLoggedIn = true;
+
+        // const myConditioCheckFunc = () => {
+        //   let returnValue = "Please Login";
+        //   if (isLoggedIn) {
+        //     returnValue = "Welcome Back";
+        //   }
+        //   return returnValue;
+        // };
+
+        const myConditioCheckFunc = () => {
+          let returnValue;
+          if (isLoggedIn) {
+            returnValue = "Welcome Back";
+          } else {
+            returnValue = "Please Login";
+          }
+          return returnValue;
+        };
+
+        return (
+          <div>
+            {isLoggedIn ? <h1>Welcome Back</h1> : <h1>Please login</h1>}
+            {/* .? : ; */}
+
+            <h1>{() => myConditioCheckFunc()}</h1>
+            {/* 
+                
+                here we are calling functin with ()/myConditioCheckFunc() 
+                instead of just name myConditioCheckFunc, 
+                because we don't want to wait for any event, we want the 
+                value of heading right away when component render.
+                
+                */}
+          </div>
+        );
+        // expression cannot use if/else use ternary operator
+
+        // operator
+        // operand
+        // 1 + 2 =>  + is operator, 1 and 2 are operand, on which operator work
+        // i++ => ++ incremental operator need only 1 operand, unary operator
+        // 2 operand needed, binary nature of operator
+        // 3 operand nedded, ternery nature of operator (ternary operator in short)
+      }
+
+      ReactDOM.render(<App />, document.querySelector("#app"));
+    </script>
+  </body>
+</html>

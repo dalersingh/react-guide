@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conditional Rendering</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      // What: Hum conditionally UI ko render karna dekhenge.
+      // Why: React mein hum condition ke basis pe UI show ya hide kar sakte hain, jaise hum vanilla JS mein karte hain.
+      // How: Hum if-else statement ka use karenge.
+
+      let isLoggedIn = false;
+
+      if (isLoggedIn) {
+        document.getElementById("app").innerHTML = "<h1>Welcome Back!</h1>";
+      } else {
+        document.getElementById("app").innerHTML = "<h1>Please Log In</h1>";
+      }
+    </script>
+  </body>
+</html>
