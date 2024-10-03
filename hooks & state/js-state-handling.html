@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <button id="incrementBtn">Increment</button>
+
+    <script>
+      // What: Hum simple state ko handle karenge using vanilla JS.
+      // Why: React mein state dynamic data ko handle karta hai, toh pehle hum dekhenge ki vanilla JS mein yeh kaise hota hai.
+      // How: Ek simple variable create karenge, aur button ke click par state ko update karenge.
+
+      let count = 0; // memory/state count = 0;  state version 1
+
+      document.querySelector("#incrementBtn").addEventListener("click", () => {
+        // update value in memory/state,
+        count++; // count = 1 state updated version 2
+
+        // update UI according to new state
+        // Manually updating UI
+        document.querySelector("#app").textContent = `Count: ${count}`;
+      });
+    </script>
+  </body>
+</html>

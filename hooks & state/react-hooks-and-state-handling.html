@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React State Handling and Hooks Introduction</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script type="text/babel">
+      // What: Hum useState ka use karenge React mein state ko handle karne ke liye.
+      // Why: React mein state component ke andar store hoti hai, aur jab state change hoti hai toh component automatically re-render hota hai.
+      // How: Hum useState hook ka use karenge state create aur update karne ke liye.
+
+      function Counter() {
+        const [count, setCount] = React.useState(0); // Initial state
+
+        // count is just another variable like let x = 0; let y = []; let z = {}; let p = [{}]; let q = "hello";
+
+        // [count:0, setCount:Fn()]
+        // you cannot change count (example count = 10) directly otherwise React will not know about it and will not re-render
+
+        // therefore always use the setCount function (example setCount(10)) to change the value of count
+
+        return (
+          <div>
+            <p>Count: {count}</p>
+            <button onClick={() => setCount(count + 1)}>Increment</button>
+          </div>
+        );
+      }
+
+      ReactDOM.render(<Counter />, document.getElementById("app"));
+
+      // 🌟 **Generic Reference (React vs JS Context)** 🌟: React mein `useState` hook automatically re-render karta hai jab state change hoti hai, jabki vanilla JS mein manually DOM update karna padta hai.
+
+      // Hooks kya hai? Hooks ek special feature hai React ke jo functional components mein state aur lifecycle features add karte hain.
+      // Functional components ke andar state aur lifecycle features ka use karna hooks ke zariye possible hota hai.
+    </script>
+  </body>
+</html>
